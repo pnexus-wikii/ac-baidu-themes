@@ -89,10 +89,10 @@ html body .RNNXgb:focus-within {
   opacity: 0.9;
 }
 
-html body #rso > .MjjYud,
-html body #rso > .g,
-html body #rso > div > .MjjYud,
-html body #rso > div > .g,
+html body #rso > .MjjYud:has(h3, [role="heading"], img, video, iframe, table, canvas),
+html body #rso > .g:has(h3, [role="heading"], img, video, iframe, table, canvas),
+html body #rso > div:not(.MjjYud, .g) > .MjjYud:has(h3, [role="heading"], img, video, iframe, table, canvas),
+html body #rso > div:not(.MjjYud, .g) > .g:has(h3, [role="heading"], img, video, iframe, table, canvas),
 html body .ULSxyf,
 html body .kp-wholepage {
   .soft-panel();
@@ -103,10 +103,10 @@ html body .kp-wholepage {
   transition: background-color 160ms ease, border-color 160ms ease;
 }
 
-html body #rso > .MjjYud:hover,
-html body #rso > .g:hover,
-html body #rso > div > .MjjYud:hover,
-html body #rso > div > .g:hover,
+html body #rso > .MjjYud:has(h3, [role="heading"], img, video, iframe, table, canvas):hover,
+html body #rso > .g:has(h3, [role="heading"], img, video, iframe, table, canvas):hover,
+html body #rso > div:not(.MjjYud, .g) > .MjjYud:has(h3, [role="heading"], img, video, iframe, table, canvas):hover,
+html body #rso > div:not(.MjjYud, .g) > .g:has(h3, [role="heading"], img, video, iframe, table, canvas):hover,
 html body .ULSxyf:hover,
 html body .kp-wholepage:hover {
   background: var(--soft-panel-hover) !important;
@@ -252,5 +252,33 @@ button,
   #rso > .kp-wholepage,
   [role="tab"] {
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* Desktop: let the result column use the available content width. */
+@media (min-width: @breakpoint) {
+  html body #rcnt {
+    box-sizing: border-box !important;
+    width: calc(100% - 48px) !important;
+    max-width: 1600px !important;
+    min-width: 0 !important;
+    margin-inline: auto !important;
+  }
+
+  html body #center_col {
+    box-sizing: border-box !important;
+    /* #rcnt is a grid: span its tracks instead of filling only track 1. */
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin-inline: 0 !important;
+  }
+
+  html body #rso {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
   }
 }
