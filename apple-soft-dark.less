@@ -448,3 +448,13 @@ html body .sp-separator.AC > span[id]:hover {
   background: var(--soft-control-hover) !important;
   border-color: var(--soft-blue) !important;
 }
+
+/* The grid already supplies equal row and column gaps. */
+@media (min-width: @breakpoint) {
+  html body #rso[two-father] > :is(.MjjYud, .g):has(h3, [role="heading"], img, video, iframe, table, canvas),
+  html body #rso div[two-father] > :is(.MjjYud, .g):has(h3, [role="heading"], img, video, iframe, table, canvas),
+  html body #rso[two-father] > :is(.ULSxyf, .kp-wholepage),
+  html body #rso div[two-father] > :is(.ULSxyf, .kp-wholepage) {
+    margin-bottom: 0 !important;
+  }
+}
